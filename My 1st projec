@@ -1,0 +1,185 @@
+#include <stdio.h>
+
+
+int main()
+{
+    char name [] = "MANZANO, FAIZAL C.";
+    char course [] = "BS COMPUTER SCIENCE 1A";
+    char year [] = "1ST YEAR";
+    char choices,cont,opt;
+    float PI = 3.14;
+    float radius,circumference,are,celsius,fahrenheit,mm,cm,m;
+    int ch,x,i,numb,n,number;
+
+
+
+do  {
+
+        printf("MAIN MENU\n[1] Name, Course, and Year Level\n[2] Area and Circumference of the Circle\n[3] Fahrenheit to Celsius & Celsius to Fahrenheit\n[4] Convert mm, cm, and m\n[5] Exchange the value of two Variables\n[6] Determine if Positive or Negative & Odd or Even\n[7] Sum and Factorial of N\n[8] Sum of the Squared N\n[9] Fibonacci Series\n[10] Determine if Letter is Vowel or Consonant\n");
+        printf("\nChoose what would you like to do: ");
+        scanf("%d", &opt);
+
+    switch(opt) {
+
+    case 1:
+            printf("[1] Name, Course, and Year Level\n\n");
+
+    printf("Name     : MANZANO, FAIZAL C.\n");
+    printf("Course   : BS COMPUTER SCIENCE\n");
+    printf("Year     : 1ST YEAR\n");
+
+            break;
+    case 2:
+            printf("[2] Area and Circumference of the Circle\n\n");
+            float radius, area, circumference;
+            printf("Enter The Radius of circle: ");
+            scanf("%f", &radius);
+    area = PI*radius*radius;
+    circumference = 2*PI*radius;
+
+    printf("Area of the circle: %.2f\n", area);
+    printf("Circumference of the circle: %.2f\n", circumference);
+
+            break;
+    case 3:
+            printf("[3] Fahrenheit to Celsius & Celsius to Fahrenheit\n\n");
+            float celsius, fahrenheit;
+    printf("Enter temperature in Fahrenheit: ");
+    scanf("%f", &fahrenheit);
+        celsius = ((fahrenheit - 32) * 5 / 9);
+        fahrenheit = ((celsius * 9.0 / 5.0) + 32.0);
+            printf("%.2f Fahrenheit = %.2f Celsius", fahrenheit, celsius);
+
+            break;
+    case 4:
+            printf("[4] Convert mm, cm to m\n\n");
+            float mm, cm , m;
+
+    printf("Enter m: ");
+    scanf("%f",&m);
+    cm = 100*m;
+    mm = 1000*m;
+    printf("\n mm %.2f",mm);
+    printf("\n\n cm %.2f",cm);
+            break;
+    case 5:
+            printf("[5] Exchange the value of two Variables\n\n");
+            float a, b;
+
+    printf("Enter a: ");
+    scanf("%f", &a);
+    printf("Enter b: ");
+    scanf("%f", &b);
+
+    a = a - b;
+    b = a + b;
+    a = b - a;
+
+    printf("After swapping, a = %.2f\n", a);
+    printf("After swapping, b = %.2f\n", b);
+
+            break;
+    case 6:
+            printf("[6] Determine if Positive or Negative & Odd or Even\n\n");
+            int n;
+    printf("Enter a number : ");
+    scanf("%d", &n);
+
+        if(n == 0){
+        printf("The number is Positive\n");
+    }
+    else if(n < 0 && (n%2) != 0)
+    {
+        printf("The number is Negative and Odd\n");
+    }
+    else if(n < 0 && (n%2) == 0)
+    {
+        printf("The number is Negative and  Even\n");
+    }
+    else if(n > 0 && (n%2) != 0)
+    {
+        printf("The number is Positive and Odd\n");
+    }
+    else if(n > 0 && (n%2) == 0)
+    {
+        printf("The number is Positive and Even\n");
+      }
+
+            break;
+    case 7:
+            printf("[7] Sum and Factorial of N\n");
+
+            int i,fact=1,number;
+
+    printf("Enter a number: ");
+    scanf("%d",&number);
+
+    for(i=1;i<=number;i++){
+        fact=fact*i;
+  }
+
+        printf("Factorial of %d is: %d",number,fact);
+
+            break;
+    case 8:
+            printf("[8] Sum of the Squared N\n");
+            int num, sum = 0;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
+
+    for (int i = 1; i <= num; ++i){
+    sum += i * i;
+}
+
+            printf("Sum of the squared of first %d natural numbers: %d\n", num, sum);
+
+            break;
+
+    case 9:
+            printf("[9] Fibonacci Series\n");
+            int numb, first = 0, second = 1, next;
+
+    printf("Enter the number of terms in the fibonacci series: ");
+    scanf("%d", &numb);
+
+    printf("Fibonacci Series: ");
+
+    for (int i = 0; i < numb; ++i){
+    printf("%d,", first);
+    next = first + second;
+    first = second;
+    second = next;}
+
+                printf("\n");
+            break;
+
+    case 10:
+            printf("[10] Determine if Letter is Vowel or Consonant\n");
+            char choices;
+
+                printf("Enter a letter: ");
+                scanf(" %c", &ch);
+
+                if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' &&ch <= 'Z'))
+                {
+                if (ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch== 'u' || ch=='U')
+                printf("%c is a vowel.\n", ch);
+
+                else
+                printf("%c is a consonant.\n", ch);
+                }
+                break;
+
+        default:
+		printf("Invalid choice. Please enter a number between 1-10. \n");
+		break;
+	}
+	    printf("\nDo you want to continue? (y/n): ");
+	    scanf(" %c", &cont);
+	}
+	while (cont == 'Y' || cont == 'y');
+	printf("\nThank you for using my program.");
+
+	return 0;
+}
