@@ -1,0 +1,226 @@
+#include <stdio.h>
+int main ()
+{
+	int choice;
+	char cont;
+	const float pi = 3.14159;
+
+	do
+	{
+		printf("Main menu: ");
+		printf("\n1. Name, course, year level \n");
+		printf("2.Area and circumference of circle \n");
+		printf("3. Converting fahrenheit and celsius\n");
+		printf("4. Converting mm, cm and m\n");
+		printf("5. Swap Variables \n");
+		printf("6. Positive or negative and Odd or even \n");
+		printf("7. Sum and factorial of N \n");
+		printf("8. Sum of the squares of N \n");
+		printf("9. Fibonacci series \n");
+		printf("10. Consonant or vowel \n\n");
+
+		printf("Enter your choice (1-10): ");
+		scanf("%d", &choice);
+
+		switch (choice)
+		{
+			case 1:
+			{
+			    char name [50];
+			    char course [50];
+			    int year;
+
+				printf("Enter your name: ");
+				scanf("%s", name);
+
+				printf("Enter your course: ");
+			    scanf("%s", course);
+
+                printf("Enter year level: ");
+				scanf("%d", &year);
+
+				printf("Welcome to the program %s.\nYou are studying %s in year %d.\n", name, course, year);
+				break;
+			}
+			case 2:
+			{
+			    float r, ar, circum;
+
+                printf("Enter radius: ");
+				scanf("%f", &r);
+
+				ar = pi*r*r;
+				circum = 2*pi*r;
+
+				printf("Area of the circle = %.2f square units \n", ar);
+				printf("Circumference of the circle = %.2f units \n", circum);
+				break;
+			}
+			case 3:
+			{
+			    float fahren, celsius;
+
+				printf("Enter temperature in Fahrenheit: ");
+				scanf("%f", &fahren);
+
+				celsius = (fahren - 32) * 5 / 9;
+
+				printf("Celsius equivalent: %.2f degrees\n", celsius);
+
+				printf("\nEnter temperature in Celsius: ");
+				scanf("%f", &celsius);
+
+				fahren = (celsius * 9 / 5) + 32;
+
+				printf("Fahrenheit equivalent: %.2f degrees\n", fahren);
+				break;
+			}
+			case 4:
+			{
+			    int mm, cm;
+	            double m;
+
+				printf("Enter length in millimeters (mm): ");
+				scanf("%d", &mm);
+
+				cm = mm * 0.1;
+				m = mm * 0.001;
+
+				printf("%d mm is equal to %d cm and %.3lf m \n\n", mm, cm, m);
+
+			    printf("Enter length in centimeters (cm): ");
+			    scanf("%d", &cm);
+
+		    	mm = cm * 10;
+		    	m = cm * 0.01;
+
+			     printf("%d cm is equal to %d mm and %.3lf m \n\n", cm, mm, m);
+
+			    printf("Enter length in meters (m): ");
+			    scanf("%lf", &m);
+
+    			 mm = m * 1000;
+    			 cm = m * 100;
+
+    			 printf("%.2lf m is equal to %d mm and %d cm \n\n", m, mm, cm);
+    			 break;
+		    }
+		    case 5:
+		    {
+		        int x, y, temp;
+    		 	printf("Enter the value of x: ");
+    		 	scanf("%d", &x);
+
+    		 	printf("Enter the value of y: ");
+    		 	scanf("%d", &y);
+
+    		 	printf("Before swapping:\n");
+    		 	printf("x = %d\ny = %d\n", x, y);
+
+    		 	temp = x;
+    		 	x = y;
+    		 	y = temp;
+
+    		 	printf("After swapping:\n");
+    		 	printf("x = %d\ny = %d\n", x, y);
+    		 	break;
+		     }
+		    case 6:
+		    {
+		        int num;
+
+			    printf("Enter a number: ");
+                scanf("%d", &num);
+
+                if (num > 0)
+                printf("%d is positive.\n", num);
+                else if (num < 0)
+                printf("%d is negative.\n", num);
+                else
+                printf("%d is zero.\n", num);
+
+                if (num % 2 == 0)
+                printf("%d is even.\n", num);
+                else
+                printf("%d is odd.\n", num);
+                break;
+		    }
+		    case 7:
+            {
+                int n, sum = 0, factorial = 1;
+
+                printf("Enter a positive integer: ");
+                scanf("%d", &n);
+
+                for (int i = 1; i <= n; ++i)
+                {
+                sum += i;
+                factorial *= i;
+                }
+
+                printf("Sum of first %d natural numbers: %d\n", n, sum);
+                printf("Factorial of %d: %d\n", n, factorial);
+                break;
+            }
+            case 8:
+            {
+                int n, sum = 0;
+
+                printf("Enter a positive integer: ");
+                scanf("%d", &n);
+
+                for (int i = 1; i <= n; ++i)
+                {
+                sum += i * i;
+                }
+
+                printf("Sum of the squared of first %d natural numbers: %d\n", n, sum);
+                break;
+            }
+            case 9:
+            {
+                int n, first = 0, second = 1, next;
+                printf("Enter the number of terms in the fibonacci series: ");
+                scanf("%d", &n);
+
+                printf("Fibonacci Series: ");
+
+                for (int i = 0; i < n; ++i)
+                {
+                printf("%d,", first);
+                next = first + second;
+                first = second;
+                second = next;
+                }
+                printf("\n");
+                break;
+            }
+            case 10:
+            {
+                char ch;
+
+                printf("Enter a letter: ");
+                scanf(" %c", &ch);
+
+                if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' &&ch <= 'Z'))
+                {
+                if (ch=='a' || ch=='A' || ch=='e' || ch=='E' || ch=='i' || ch=='I' || ch=='o' || ch=='O' || ch== 'u' || ch=='U')
+                printf("%c is a vowel.\n", ch);
+
+                else
+                printf("%c is a consonant.\n", ch);
+                }
+                break;
+            }
+        default:
+		printf("Invalid choice. Please enter a number between 1-10. \n");
+		break;
+	}
+	    printf("\nDo you want to continue? (y/n): ");
+	    scanf(" %c", &cont);
+	}
+	while (cont == 'Y' || cont == 'y');
+	printf("\nThank you for using my program.");
+
+	return 0;
+}
